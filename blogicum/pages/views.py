@@ -5,3 +5,4 @@ def about(request):
 
 def rules(request):
     return render(request, 'pages/rules.html')
+    
