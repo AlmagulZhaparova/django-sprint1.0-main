@@ -1,30 +1,26 @@
-{% load static %} <!-- Добавьте эту строку в самое начало -->
+{% load static %} 
 <!DOCTYPE html> 
 <html lang="ru"> 
   <head>    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Исправьте пути к статическим файлам -->
     <link rel="icon" href="{% static 'img/fav/favicon.ico' %}" type="image">
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/fav/apple-touch-icon.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/fav/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/fav/favicon-16x16.png' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <!-- Формируется из локации и даты -->
-    <title>{{ post.location }}. {{ post.date }}</title> <!-- Используйте переменные из контекста -->
+    <title>{{ post.location }}. {{ post.date }}</title>
   </head>
   <body>	   
     <header>
       <nav class="navbar navbar-light" style="background-color: lightskyblue">
         <div class="container">
-          <!-- Исправьте ссылку на главную страницу -->
           <a class="navbar-brand" href="{% url 'blog:index' %}">
             <img src="{% static 'img/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
             Блогикум
           </a>        
           <ul class="nav  nav-pills">
             <li class="nav-item">
-              <!-- Исправьте ссылку на главную страницу -->
               <a class="nav-link" href="{% url 'blog:index' %}">
                 Лента записей
               </a>
@@ -33,7 +29,6 @@
               <a class="nav-link" href="{% url 'pages:about' %}">О проекте</a>
             </li>
             <li class="nav-item">
-              <!-- Исправьте ссылку на страницу правил -->
               <a class="nav-link" href="{% url 'pages:rules' %}">
                 Наши правила
               </a>
@@ -47,18 +42,17 @@
         <article>
           <ul>
             <li>
-              Место: {{ post.location }} <!-- Используйте переменную из контекста -->
+              Место: {{ post.location }}
             </li>
             <li>
-              Дата: {{ post.date }} <!-- Используйте переменную из контекста -->
+              Дата: {{ post.date }}
             </li>
-            <li>
-              <!-- Исправьте ссылку на категорию -->
+             <li>
               Категория: <a href="{% url 'blog:category_posts' post.category %}">{{ post.category }}</a>
             </li>
           </ul>         
           <p>
-            {{ post.text|linebreaksbr }} <!-- Используйте переменную и фильтр для переносов строк -->
+            {{ post.text|linebreaksbr }} 
           </p>          
         </article>                
       </div>
